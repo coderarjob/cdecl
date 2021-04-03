@@ -32,27 +32,36 @@ int main(int argc, char *argv[])
                 else { prndesc(&t); state = 1; }
                 break;
             case 1:
-                if (!gettoken(&decl,&t)) state = 5; 
-                if      (!strcmp(t.string,"(")) state = 2;
+                if      (!gettoken(&decl,&t)) state = 5; 
+                else if (!strcmp(t.string,"(")) state = 2;
                 else if (!strcmp(t.string,"[")) state = 3;
                 else if (!strcmp(t.string,")")) state = 4;
-                prndesc(&t);
+                else    state = 6;
+
+                if (state == 2 || state == 3) prndesc(&t);
                 break;
             case 2:
                 if (!gettoken(&decl,&t)) state = 6; 
                 if (!strcmp(t.string,")")) state = 1;
                 break;
             case 3:
-                if (!gettoken(&decl,&t)) state = 6; 
-                if (!strcmp(t.string,"]")) state = 1;
+                if      (!gettoken(&decl,&t)) state = 6; 
+                else if (!strcmp(t.string,"]")) state = 1;
+                //else if (!isdigit(t.string)) state = 6;
                 break;
             case 4:
-                if (acl_stack_pop(stack,&t)) state = 6;
-                if (!strcmp(t.string,"(")) state = 1;
+                if      (acl_stack_pop(stack,&t)) state = 6;
+                else if (!strcmp(t.string,"(")) state = 1;
+                else if (t.type != TYPE && 
+                         t.type != QUALIFIER && 
+                         strcmp(t.string,"*"))  state = 6;
                 else prndesc(&t);
                 break;
             case 5:
-                if (acl_stack_pop(stack,&t)) state = 7;
+                if      (acl_stack_pop(stack,&t)) state = 7;
+                else if (t.type != TYPE && 
+                         t.type != QUALIFIER && 
+                         strcmp(t.string,"*"))  state = 6;
                 else prndesc(&t);
                 break;
         }
