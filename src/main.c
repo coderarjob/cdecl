@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-#include "acl_stack.h"
+#include <acl_stack.h>
 
 enum token_type {UNKNOWN, IDENTIFIER, QUALIFIER, TYPE, OPERATOR, SEPARATOR};
 struct token

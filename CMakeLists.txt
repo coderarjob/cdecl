@@ -5,11 +5,11 @@ project(cdecl LANGUAGES C)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 set(SOURCES
-    acl_stack.c
-    main.c)
+    src/acl_stack.c
+    src/main.c)
 
 add_executable(${PROJECT_NAME} ${SOURCES})
-target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR})
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src)
 
 if (UNIX)
     # Compiling under Cygwin, Linux

@@ -15,7 +15,7 @@ Can be build in `Linux` and `Windows`. Only dependencies are `cmake` and a `C co
 > cmake --build build
 ```
 
-Binary will be in `build/bin/cdecl`.
+Binary will be in `build/bin/`.
 
 ### Usage
 

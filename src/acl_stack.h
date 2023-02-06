@@ -1,5 +1,6 @@
 #ifndef STACK_H
 #define STACK_H
+#include <stddef.h> // size_t
 
 #define ACL_DEF_STACK_SIZE 50
 
