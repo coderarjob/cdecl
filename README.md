@@ -3,7 +3,8 @@
 ### Dependencies
 
 * cmake
-* C compiler (Example: `gcc` in Linux, `Visual C++` in Windows)
+* UNIX: GCC
+* Windows: Cygwin/Visual C++ Compiler
 
 ### Bulid
 
