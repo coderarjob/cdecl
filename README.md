@@ -8,7 +8,7 @@
 
 ### Bulid
 
-Can be build in `Linux` and `Windows`. Only dependencies are `cmake` and a `C compiler`.
+Can be build in `Linux`, `macOS` and `Windows`. Only dependencies are `cmake` and a `C compiler`.
 
 ```
 > cmake -Bbuild
